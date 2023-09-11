@@ -1,8 +1,9 @@
 import Image from "next/image";
 
 function Footer() {
+  
   return (
-    <footer className="flex flex-col items-center justify-center pb-10 text-center">
+    <footer className="flex flex-col items-center justify-center text-center md:pb-10">
       <div className="flex">
         <Image
           src="/facebook.svg"
@@ -33,7 +34,7 @@ function Footer() {
           className=""
         />
       </div>
-      <ul className="flex justify-between w-1/2">
+      <ul className="flex justify-between w-full px-4 py-4 md:py-8 md:w-1/2 lg:w-1/4 md:px-0">
         <li className="font-bold">Conditions of Use</li>
         <li className="font-bold">Privacy & Policy</li>
         <li className="font-bold">Press Room</li>

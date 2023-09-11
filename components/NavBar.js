@@ -1,8 +1,14 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 function NavBar() {
+  const [hideNav, setHideNav] = useState(true);
+  const toggleNav = () => {
+    setHideNav(!hideNav);
+  };
   return (
-    <ul className="flex items-center justify-between pt-8">
+    <ul className="flex flex-col items-center justify-between pt-8 md:flex-row">
       <li className="flex items-center justify-between">
         <Image
           src="/tv.svg"
@@ -11,7 +17,17 @@ function NavBar() {
           height={40}
           className="mr-4"
         />
-        <span className="text-3xl font-bold">MovieBox</span>
+        <span className="mr-10 text-3xl font-bold md:mr-0">MovieBox</span>
+        <div className="flex items-center justify-between w-full md:hidden">
+          <span className="text-xl font-bold">Sign In</span>
+          <Image
+            src="/Menu.svg"
+            alt="jsbits logo"
+            width={40}
+            height={40}
+            className="ml-4"
+          />
+        </div>
       </li>
       <li className="relative">
         {/* <input type="text" placeholder="What do you want to watch?" className="border-4 rounded-2xl"/>
@@ -22,9 +38,8 @@ function NavBar() {
             height={20}
             className="absolute bg-black right-3 top-2"
           /> */}
-        <div>
-          <>
-            <div class="relative text-gray-600 focus-within:text-gray-400">
+        
+            <div class="relative text-gray-600 focus-within:text-gray-400 mt-6 md:mt-0">
               <input
                 type="search"
                 name="q"
@@ -51,10 +66,9 @@ function NavBar() {
                 </button>
               </span>
             </div>
-          </>
-        </div>
+         
       </li>
-      <li className="flex items-center justify-between">
+      <li className="items-center justify-between hidden md:flex">
         <span className="text-xl font-bold">Sign In</span>
         <Image
           src="/Menu.svg"
