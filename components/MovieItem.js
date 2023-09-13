@@ -45,12 +45,22 @@ function MovieItem({ movie }) {
   };
   return (
     <div className="flex flex-col px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0">
-      <Image
-        src={imageSrc(movie)}
-        alt="movie image"
-        height={360}
-        width={360}
-      />
+      <div className="relative">
+        <Image
+          src={imageSrc(movie)}
+          alt="movie image"
+          height={360}
+          width={360}
+        />
+        <Image
+          src="/Favorite.svg"
+          alt="favourite icon"
+          height={60}
+          width={60}
+          className="absolute top-2 right-2"
+          onClick={()=>{console.log('favourite button clicked')}}
+        />
+      </div>
       <div className="flex flex-col items-start pt-4 pl-4 pr-6 md:pl-0">
         <p className="text-[#9CA3AF] font-bold">
           USA, {getYear(movie.release_date)}
@@ -58,8 +68,14 @@ function MovieItem({ movie }) {
         <p className="text-2xl font-bold">{movie.title}</p>
         <div className="flex md:justify-between">
           <div className="flex justify-between">
-          <Image src="/imdb-icon.svg" alt="imdb icon" width={40} height={40} className="mr-6"/>
-          <span>{getRating(movie.vote_average)}</span>
+            <Image
+              src="/imdb-icon.svg"
+              alt="imdb icon"
+              width={40}
+              height={40}
+              className="mr-6"
+            />
+            <span>{getRating(movie.vote_average)}</span>
           </div>
           <div className="flex items-center justify-between">
             <Image
