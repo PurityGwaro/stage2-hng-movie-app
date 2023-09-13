@@ -5,16 +5,16 @@ import { useState } from "react";
 
 function NavBar() {
   return (
-    <ul className="flex flex-col items-center justify-between pt-8 md:flex-row">
+    <ul className="flex flex-col items-center justify-between px-4 pt-8 md:flex-row">
       <li className="flex items-center justify-between">
         <Image
           src="/tv.svg"
-          alt="jsbits logo"
+          alt="tv logo"
           width={40}
           height={40}
           className="mr-4"
         />
-        <Link href='/' className="mr-10 text-3xl font-bold md:mr-0">MovieBox</Link>
+        <Link href='/' className="mr-10 text-3xl font-bold text-white md:mr-0">MovieBox</Link>
         <div className="flex items-center justify-between w-full md:hidden">
           <span className="text-xl font-bold">Sign In</span>
           <Image
@@ -36,18 +36,18 @@ function NavBar() {
             className="absolute bg-black right-3 top-2"
           /> */}
         
-            <div class="relative text-gray-600 focus-within:text-gray-400 mt-6 md:mt-0">
+            <div class="relative mt-6 md:mt-0">
               <input
                 type="search"
                 name="q"
-                className="py-2 pl-4 pr-10 text-sm text-white border-4 rounded-md focus:outline-none"
+                className="py-2 pl-4 pr-10 text-sm border rounded-md bg-none"
                 placeholder="What do you want to watch?"
                 autocomplete="off"
               />
               <span className="absolute inset-y-0 right-0 flex items-center pr-2">
                 <button
                   type="submit"
-                  className="p-1 focus:outline-none focus:shadow-outline"
+                  className="p-1 focus:shadow-outline"
                 >
                   <svg
                     fill="none"
@@ -66,7 +66,7 @@ function NavBar() {
          
       </li>
       <li className="items-center justify-between hidden md:flex">
-        <span className="text-xl font-bold">Sign In</span>
+        <span className="text-xl font-bold text-white">Sign In</span>
         <Image
           src="/Menu.svg"
           alt="jsbits logo"
