@@ -47,10 +47,10 @@ function NavBar() {
                 placeholder="What do you want to watch?"
                 autocomplete="off"
               />
-              <span class="absolute inset-y-0 right-0 flex items-center pr-2">
+              <span className="absolute inset-y-0 right-0 flex items-center pr-2">
                 <button
                   type="submit"
-                  class="p-1 focus:outline-none focus:shadow-outline"
+                  className="p-1 focus:outline-none focus:shadow-outline"
                 >
                   <svg
                     fill="none"

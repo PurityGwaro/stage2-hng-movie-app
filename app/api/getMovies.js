@@ -6,9 +6,22 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 export const getMovies = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/movie/popular/?api_key=${API_KEY}`);
-    console.log('this is the response', response)
+    console.log('this is the response for movies', response)
     return response.data.results;
   } catch (error) {
     throw error;
   }
 };
+export const getGenres = async () => {
+  const url = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const genres = data.genres;
+    return genres;
+  } catch (error) {
+    console.error('Error fetching genre data:', error);
+    return [];
+  }
+}

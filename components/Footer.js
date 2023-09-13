@@ -3,7 +3,7 @@ import Image from "next/image";
 function Footer() {
   
   return (
-    <footer className="flex flex-col items-center justify-center text-center md:pb-10">
+    <footer className="flex flex-col items-center justify-center py-10 text-center">
       <div className="flex">
         <Image
           src="/facebook.svg"
@@ -35,9 +35,9 @@ function Footer() {
         />
       </div>
       <ul className="flex justify-between w-full px-4 py-4 md:py-8 md:w-1/2 lg:w-1/4 md:px-0">
-        <li className="font-bold">Conditions of Use</li>
-        <li className="font-bold">Privacy & Policy</li>
-        <li className="font-bold">Press Room</li>
+        <li className="text-sm font-bold">Conditions of Use</li>
+        <li className="text-sm font-bold">Privacy & Policy</li>
+        <li className="text-sm font-bold">Press Room</li>
       </ul>
       <p className="text-[#6B7280] font-bold">© 2021 MovieBox by Purity Gwaro</p>
     </footer>

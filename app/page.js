@@ -3,7 +3,7 @@ import NavBar from '@/components/NavBar'
 
 export default function Home() {
   return (
-    <main className="container h-screen mx-auto">
+    <main className="container mx-auto">
       <NavBar />
       <MovieList />
     </main>
