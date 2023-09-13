@@ -22,7 +22,7 @@ function MovieList({movies}) {
           See More
         </Link>
       </div>
-      <Link href="/favorites" className="text-[#BE123C] hover:underline mb-4 font-bold">Go to Favorites</Link>
+      <Link href="/favorites" className="text-[#BE123C] hover:underline mb-4 font-bold pl-4">Go to Favorites</Link>
       <section className="flex flex-col items-center md:flex-wrap md:items-start md:flex-row">
         {movies.map((movie) => (
           <MovieItem key={movie.id} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}

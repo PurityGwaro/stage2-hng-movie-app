@@ -1,5 +1,6 @@
 "use client";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromFavorites, addToFavorites } from "@/redux/moviesSlice";
 import MovieItem from "./MovieItem";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,9 +9,19 @@ function SearchResults() {
   const searchResults = useSelector(
     (state) => state.searchMovies.searchResults
   );
+  const favorites = useSelector((state) => state.movies.favorites);
+  const dispatch = useDispatch();
+
+   const handleAddToFavorites = (movie) => {
+    dispatch(addToFavorites(movie));
+  };
+
+  const handleRemoveFromFavorites = (movieId) => {
+    dispatch(removeFromFavorites(movieId));
+  };
   return (
-    <div className="flex flex-wrap pt-10">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col pt-10">
+      <div className="flex items-center mb-10">
         <Image
           src="/tv.svg"
           alt="tv logo"
@@ -22,9 +33,14 @@ function SearchResults() {
           MovieBox
         </Link>
       </div>
+        <h1 className='mb-4 text-2xl font-bold text-[#BE123C]'>Your Search Results</h1>
+      <div className="flex flex-wrap">
       {searchResults.map((movie, index) => (
-        <MovieItem key={index} movie={movie} />
+        <MovieItem key={movie.id} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
+        addToFavorites={handleAddToFavorites}
+        removeFromFavorites={handleRemoveFromFavorites}/>
       ))}
+      </div>
     </div>
   );
 }

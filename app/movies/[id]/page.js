@@ -1,10 +1,9 @@
 'use client'
-import { useRouter } from 'next/navigation';
 import MovieDescription from '../../../components/MovieDescription.js'
 
 function page() {
   return (
-    <div>
+    <div className='container mx-auto'>
        <MovieDescription />
     </div>
   );

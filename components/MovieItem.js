@@ -61,7 +61,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
               alt="favourite icon"
               height={60}
               width={60}
-              className="absolute bg-red-700 top-2 right-2"
+              className="absolute bg-blue-700 top-2 right-2"
               onClick={() => removeFromFavorites(movie.id)}
             />
           ) : (

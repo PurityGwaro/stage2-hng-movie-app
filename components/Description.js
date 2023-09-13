@@ -57,7 +57,16 @@ function Description({ movie }) {
       .filter(Boolean)
       .join(", ");
   };
-  return <div>movie description</div>;
+  return <div>
+    <Image
+          src='/Poster.svg'
+          alt="video image"
+          height={350}
+          width={350}
+          onError={(e) => { e.target.onerror = null; e.target.src = '/imdb-icon.svg'; e.target.style.width = '370px'; e.target.style.height = '370px'; }}
+          className=""
+        />
+  </div>;
 }
 
 export default Description;

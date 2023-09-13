@@ -1,5 +1,6 @@
 "use client";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromFavorites, addToFavorites } from "@/redux/moviesSlice";
 import MovieItem from "./MovieItem";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,7 +8,16 @@ import Image from "next/image";
 function Favorites() {
   const favorites = useSelector(
     (state) => state.movies.favorites
-  );
+  ); 
+  const dispatch = useDispatch();
+
+   const handleAddToFavorites = (movie) => {
+    dispatch(addToFavorites(movie));
+  };
+
+  const handleRemoveFromFavorites = (movieId) => {
+    dispatch(removeFromFavorites(movieId));
+  };
   return (
     <div className="flex flex-col pt-10">
       
@@ -26,7 +36,9 @@ function Favorites() {
       <h1 className='mb-4 text-2xl font-bold text-[#BE123C]'>Your Favorite Movies</h1>
       <div className="flex flex-wrap">
       {favorites.map((movie, index) => (
-        <MovieItem key={index} movie={movie} />
+        <MovieItem key={movie.index} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
+        addToFavorites={handleAddToFavorites}
+        removeFromFavorites={handleRemoveFromFavorites}/>
       ))}
       </div>
     </div>
