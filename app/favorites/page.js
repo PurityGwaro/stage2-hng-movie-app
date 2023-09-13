@@ -1,9 +1,9 @@
-import SearchResults from "@/components/SearchResults";
+import Favorites from "@/components/Favorites";
 
 function page() {
   return (
     <div className="container mx-auto">
-      <SearchResults />
+      <Favorites />
     </div>
   );
 }

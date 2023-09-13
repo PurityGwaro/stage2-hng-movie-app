@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import MovieDescription from '../../../components/MovieDescription.js'
 
-function MovieDetails() {
+function page() {
   return (
     <div>
        <MovieDescription />
@@ -10,4 +10,4 @@ function MovieDetails() {
   );
 }
 
-export default MovieDetails;
+export default page;

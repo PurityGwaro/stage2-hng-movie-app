@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const searchMoviesSlice = createSlice({
-  name: 'searchMovies',
+  name: "searchMovies",
   initialState: {
     searchResults: [],
   },

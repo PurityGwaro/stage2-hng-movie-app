@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from 'next/navigation';
+import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getGenres } from "@/app/api/getMovies";
 import SecondNav from "./SecondNav";
 
-function Description({movie}) {
-console.log('movie itself', movie)
+function Description({ movie }) {
+  console.log("movie itself", movie);
   const [genres, setGenres] = useState([]);
 
   const imageSrc = (movie, imageSize = "w185") => {
@@ -18,15 +18,15 @@ console.log('movie itself', movie)
       return "";
     }
   };
-  const videoSrc = (movie) => {
-    const imgBaseUrl = "https://image.tmdb.org/t/p/";
-    if (movie?.poster_path) {
-      return `${imgBaseUrl}${imageSize}${movie?.backdrop_path}`;
-    } else {
-      return "";
-    }
-  };
-  console.log('video src', videoSrc(movie))
+  // const videoSrc = (movie) => {
+  //   const imgBaseUrl = "https://image.tmdb.org/t/p/";
+  //   if (movie?.poster_path) {
+  //     return `${imgBaseUrl}${imageSize}${movie?.backdrop_path}`;
+  //   } else {
+  //     return "";
+  //   }
+  // };
+  // console.log("video src", videoSrc(movie));
   const getYear = (year) => {
     return year?.split("-")[0];
   };
@@ -49,18 +49,15 @@ console.log('movie itself', movie)
     console.log("here are the genres: ", genres);
   }, []);
   const getGenreNames = (genreIds) => {
-    return genreIds?.map((genreId) => {
+    return genreIds
+      ?.map((genreId) => {
         const genre = genres.find((genre) => genre.id === genreId);
         return genre ? genre.name : "";
       })
       .filter(Boolean)
       .join(", ");
   };
-  return (
-    <div>
-      {videoSrc(movie)}
-    </div>
-  )
+  return <div>movie description</div>;
 }
 
-export default Description
+export default Description;

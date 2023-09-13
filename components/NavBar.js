@@ -17,7 +17,7 @@ function NavBar() {
     try {
       dispatch(performSearch(searchQuery));
       // if (searchResults?.length > 0) {
-        router.push("/search-results");
+      router.push("/search-results");
       // }
     } catch (error) {
       throw error;

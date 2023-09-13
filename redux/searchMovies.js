@@ -6,6 +6,7 @@ export const performSearch = (query) => async (dispatch) => {
     const results = await searchMovies(query);
     
     dispatch(setSearchResults(results));
+  
   } catch (error) {
     throw error
   }
