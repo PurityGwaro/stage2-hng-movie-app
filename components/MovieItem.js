@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { getGenres } from "@/app/api/getMovies";
+import Link from "next/link";
 
 function MovieItem({ movie }) {
   const [genres, setGenres] = useState([]);
@@ -44,7 +45,7 @@ function MovieItem({ movie }) {
       .join(", ");
   };
   return (
-    <div className="flex flex-col px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0">
+    <div className="flex flex-col w-full px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0">
       <div className="relative">
         <Image
           src={imageSrc(movie)}
@@ -58,14 +59,19 @@ function MovieItem({ movie }) {
           height={60}
           width={60}
           className="absolute top-2 right-2"
-          onClick={()=>{console.log('favourite button clicked')}}
+          onClick={() => {
+            console.log("favourite button clicked");
+          }}
         />
       </div>
       <div className="flex flex-col items-start pt-4 pl-4 pr-6 md:pl-0">
         <p className="text-[#9CA3AF] font-bold">
           USA, {getYear(movie.release_date)}
         </p>
-        <p className="text-2xl font-bold">{movie.title}</p>
+        <Link href={`/movies/${movie.id}`}
+          >
+          <p className="text-2xl font-bold">{movie.title}</p>
+        </Link>
         <div className="flex md:justify-between">
           <div className="flex justify-between">
             <Image

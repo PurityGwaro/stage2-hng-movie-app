@@ -1,12 +1,9 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 function NavBar() {
-  const [hideNav, setHideNav] = useState(true);
-  const toggleNav = () => {
-    setHideNav(!hideNav);
-  };
   return (
     <ul className="flex flex-col items-center justify-between pt-8 md:flex-row">
       <li className="flex items-center justify-between">
@@ -17,7 +14,7 @@ function NavBar() {
           height={40}
           className="mr-4"
         />
-        <span className="mr-10 text-3xl font-bold md:mr-0">MovieBox</span>
+        <Link href='/' className="mr-10 text-3xl font-bold md:mr-0">MovieBox</Link>
         <div className="flex items-center justify-between w-full md:hidden">
           <span className="text-xl font-bold">Sign In</span>
           <Image
