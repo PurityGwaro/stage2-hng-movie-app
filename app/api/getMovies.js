@@ -25,3 +25,14 @@ export const getGenres = async () => {
     return [];
   }
 }
+export const searchMovies = async (query) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+    );
+    console.log('This is the response for movies searching', response);
+    return response.data.results;
+  } catch (error) {
+    throw error;
+  }
+};
