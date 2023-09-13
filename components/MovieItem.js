@@ -44,7 +44,7 @@ function MovieItem({ movie }) {
       .join(", ");
   };
   return (
-    <div className="flex flex-col w-full px-10 mb-10 md:w-1/3 lg:w-1/5 md:px-0">
+    <div className="flex flex-col px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0">
       <Image
         src={imageSrc(movie)}
         alt="movie image"

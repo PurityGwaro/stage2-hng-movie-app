@@ -25,7 +25,7 @@ function MovieList() {
       <h1>Featured Movie</h1>
       {/* add a list of popular movies */}
     </section>
-    <section className="container flex flex-col items-center justify-between mx-auto md:items-start md:flex-row md:flex-wrap">
+    <section className="flex flex-col items-center mx-auto md:flex-wrap md:items-start md:flex-row">
       {movies.map((movie) => (
         <MovieItem key={movie.id} movie={movie}/>
       ))}
