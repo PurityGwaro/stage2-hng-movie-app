@@ -2,10 +2,11 @@ import axios from 'axios';
 
 const API_KEY = '00c429f22e8422911cceac8a26180fc0';
 const BASE_URL = 'https://api.themoviedb.org/3';
+// const BASE_URL = 'https://api.themoviedb.org/3';
 // https://api.themoviedb.org/3/movie/top_rated
 export const getMovies = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/movie/top_rated/?api_key=${API_KEY}`);
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/top_rated/?api_key=${API_KEY}`);
     console.log('this is the response for movies', response)
     return response.data.results;
   } catch (error) {
