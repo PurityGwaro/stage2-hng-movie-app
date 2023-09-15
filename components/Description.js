@@ -77,7 +77,7 @@ function Description({ movie }) {
   const date = singleMovie?.release_date ? new Date(singleMovie?.release_date).toISOString() : ''
   
   return (
-    <div className="grid grid-cols-1 px-4 pt-10 border-2">
+    <div className="grid grid-cols-1 px-4 pt-10">
       <div
         className="w-full bg-center bg-no-repeat bg-cover border"
         style={{
