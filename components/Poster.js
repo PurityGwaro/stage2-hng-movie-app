@@ -23,7 +23,7 @@ function Poster({ movies }) {
               alt="imdb icon"
               width={40}
               height={40}
-              className="mr-6"
+              className="w-auto h-auto mr-6"
             />
             {/* <span>{getRating(movie.vote_average)}</span> */}
           </div>
@@ -33,7 +33,7 @@ function Poster({ movies }) {
               alt="imdb icon"
               width={20}
               height={20}
-              className="mr-2"
+              className="w-auto h-auto mr-2"
             />
             {/* <span>{percentageRating(movie.vote_average)}</span> */}
           </div>

@@ -9,28 +9,28 @@ function Footer() {
           alt="jsbits logo"
           width={20}
           height={20}
-          className="mr-10"
+          className="w-auto h-auto mr-10"
         />
         <Image
           src="/instagram.svg"
           alt="jsbits logo"
           width={20}
           height={20}
-          className="mr-10"
+          className="w-auto h-auto mr-10"
         />
         <Image
           src="/twitter.svg"
           alt="jsbits logo"
           width={20}
           height={20}
-          className="mr-10"
+          className="w-auto h-auto mr-10"
         />
         <Image
           src="/youtube.svg"
           alt="jsbits logo"
           width={20}
           height={20}
-          className=""
+          className="w-auto h-auto"
         />
       </div>
       <ul className="flex justify-between w-full px-4 py-4 md:py-8 md:w-1/2 lg:w-1/4 md:px-0">

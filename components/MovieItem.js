@@ -9,11 +9,13 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
   const imageSrc = (movie, imageSize = "w185") => {
     const imgBaseUrl = "https://image.tmdb.org/t/p/";
     if (movie.poster_path) {
+      // console.log('image url: ', `${imgBaseUrl}${imageSize}${movie.poster_path}`)
       return `${imgBaseUrl}${imageSize}${movie.poster_path}`;
     } else {
       return "";
     }
   };
+  
   const getYear = (year) => {
     return year.split("-")[0];
   };
@@ -33,7 +35,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
 
     fetchGenreData();
     const genres = getGenres();
-    console.log("here are the genres: ", genres);
+    // console.log("here are the genres: ", genres);
   }, []);
   const getGenreNames = (genreIds) => {
     return genreIds
@@ -61,7 +63,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
               alt="favourite icon"
               height={60}
               width={60}
-              className="absolute bg-blue-700 top-2 right-2"
+              className="absolute w-auto h-auto bg-blue-700 top-2 right-2"
               onClick={() => removeFromFavorites(movie.id)}
             />
           ) : (
@@ -70,7 +72,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
               alt="favourite icon"
               height={60}
               width={60}
-              className="absolute top-2 right-2"
+              className="absolute w-auto h-auto top-2 right-2"
               onClick={() => addToFavorites(movie)}
             />
           )}
@@ -90,7 +92,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
               alt="imdb icon"
               width={40}
               height={40}
-              className="mr-6"
+              className="w-auto h-auto mr-6"
             />
             <span>{getRating(movie.vote_average)}</span>
           </div>
@@ -100,7 +102,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
               alt="imdb icon"
               width={20}
               height={20}
-              className="mr-2"
+              className="w-auto h-auto mr-2"
             />
             <span>{percentageRating(movie.vote_average)}</span>
           </div>

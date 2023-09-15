@@ -49,7 +49,7 @@ function NavBar() {
         </div>
       </li>
       <li className="relative">
-        <div class="relative mt-6 md:mt-0">
+        <div className="relative mt-6 md:mt-0">
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -70,9 +70,9 @@ function NavBar() {
                 <svg
                   fill="none"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
                   className="w-5 h-5"
                 >

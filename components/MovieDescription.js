@@ -16,7 +16,7 @@ function MovieDescription() {
 
 
   return (
-    <div className="container flex items-center justify-between pt-10 mx-auto">
+    <div className="container flex pt-10 mx-auto lg:w-[70%]">
         <SecondNav />
         <Description movie={movie}/>
     </div>
