@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromFavorites, addToFavorites } from "@/redux/moviesSlice";
 import MovieItem from "./MovieItem";
@@ -6,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 function SearchResults() {
+  const [isLoading, setIsLoading] = useState(true);
   const searchResults = useSelector(
     (state) => state.searchMovies.searchResults
   );
@@ -19,7 +21,13 @@ function SearchResults() {
   const handleRemoveFromFavorites = (movieId) => {
     dispatch(removeFromFavorites(movieId));
   };
-  console.log('search results on component: ', searchResults)
+  // console.log('search results on component: ', searchResults)
+  useEffect(() => {
+    const delayingResults = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(delayingResults);
+  }, []);
   return (
     <div className="flex flex-col pt-10">
       <div className="flex items-center mb-10">
@@ -35,13 +43,22 @@ function SearchResults() {
         </Link>
       </div>
         <h1 className='mb-4 text-2xl font-bold text-[#BE123C]'>Your Search Results</h1>
-      <div className="flex flex-wrap">
-      {searchResults?.map((movie, index) => (
-        <MovieItem key={movie.id} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
-        addToFavorites={handleAddToFavorites}
-        removeFromFavorites={handleRemoveFromFavorites}/>
+       {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        searchResults?.length === 0 ? (<p>No results found, kindly try again</p>) : (
+          <div className="flex flex-wrap">
+          {searchResults?.map((movie, index) => (
+            <MovieItem
+              key={movie.id}
+              movie={movie}
+              isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
+              addToFavorites={handleAddToFavorites}
+              removeFromFavorites={handleRemoveFromFavorites}
+            />
+          ))}
+        </div>
       ))}
-      </div>
     </div>
   );
 }
