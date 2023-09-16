@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function SecondNav() {
   return (
-    <nav className="grid grid-cols-1 pt-4 pb-4 border-2 lg:px-8 lg:pt-10 rounded-tr-2xl rounded-br-2xl lg:w-1/2 md:w-3/4 md:px-4 ml-1">
+    <nav className="grid grid-cols-1 pt-4 pb-4 ml-1 border-2 lg:pr-6 lg:px-8 lg:pt-10 rounded-tr-2xl rounded-br-2xl lg:w-1/2 md:w-3/4 md:px-4">
       <div className="flex items-center">
         <Image
           src="/tv.svg"
@@ -41,7 +41,7 @@ function SecondNav() {
           />
         </li>
       </ul>
-      <div className="border border-[#BE123C] py-6 text-sm mx-4 rounded-xl mb-2 px-4">
+      <div className="border border-[#BE123C] pt-6 text-sm rounded-xl mb-2 px-4 lg:w-[180px] md:w-[140px]">
         <p className="mb-3 text-[#333333]">
           Play movie quizes and earn free tickets
         </p>
