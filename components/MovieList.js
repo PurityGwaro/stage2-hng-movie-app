@@ -3,10 +3,11 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromFavorites, addToFavorites } from "@/redux/moviesSlice";
 import Poster from "./Poster";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setMovies } from "@/redux/moviesSlice"; 
 
 function MovieList() {
+  const [firstTen, setFirstTen] = useState([])
   const favorites = useSelector((state) => state.movies.favorites);
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movies.movies);
@@ -32,6 +33,7 @@ function MovieList() {
     
         const data = await api.json();
         dispatch(setMovies(data?.results));
+        setFirstTen(data?.results.slice(0, 10))
       } catch(err) {
         console.log('Error fetching movie data: ', err);
       }
@@ -59,7 +61,7 @@ function MovieList() {
         // className="flex flex-col items-center md:flex-wrap md:items-start md:flex-row"
         className="grid items-start justify-center max-w-full grid-cols-1 gap-10 lg:grid-cols-5 md:grid-cols-3 lg:pl-10 lg:mt-10 place-content-center"
         >
-          {movies?.map((movie) => (
+          {firstTen?.map((movie) => (
             <MovieItem
               key={movie.id}
               movie={movie}
