@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { getGenres } from "@/app/api/getMovies";
 import Link from "next/link";
 import Image from "next/image";
 
 function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
   const [genres, setGenres] = useState([]);
+  const API_KEY = "00c429f22e8422911cceac8a26180fc0";
+  const BASE_URL = "https://api.themoviedb.org/3";
 
   const imageSrc = (movie, imageSize = "w185") => {
     const imgBaseUrl = "https://image.tmdb.org/t/p/";
     if (movie.poster_path) {
-      // console.log('image url: ', `${imgBaseUrl}${imageSize}${movie.poster_path}`)
       return `${imgBaseUrl}${imageSize}${movie.poster_path}`;
     } else {
       return "";
     }
   };
-  
+
   const getYear = (year) => {
     return year.split("-")[0];
   };
@@ -27,6 +27,20 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
     const percentage = `${vote_average * 10}%`;
     return percentage;
   };
+
+  const getGenres = async () => {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
+      );
+      const data = await response.json();
+      return data.genres;
+    } catch (error) {
+      console.error("Error fetching genre data:", error);
+      return [];
+    }
+  };
+
   useEffect(() => {
     async function fetchGenreData() {
       const genreData = await getGenres();
@@ -34,8 +48,6 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
     }
 
     fetchGenreData();
-    const genres = getGenres();
-    // console.log("here are the genres: ", genres);
   }, []);
   const getGenreNames = (genreIds) => {
     return genreIds
@@ -46,6 +58,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
       .filter(Boolean)
       .join(", ");
   };
+
   return (
     <div className="flex flex-col w-full px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0">
       <div className="relative  h-[80%]">
@@ -54,35 +67,39 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
           alt="movie image"
           height={350}
           width={350}
-          onError={(e) => { e.target.onerror = null; e.target.src = '/imdb-icon.svg'; e.target.style.width = '370px'; e.target.style.height = '370px'; }}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "/imdb-icon.svg";
+            e.target.style.width = "370px";
+            e.target.style.height = "370px";
+          }}
           className=""
         />
-          {isFavorite ? (
-            <Image
-              src="/Favorite.svg"
-              alt="favourite icon"
-              height={60}
-              width={60}
-              className="absolute w-auto h-auto bg-blue-700 top-2 right-2"
-              onClick={() => removeFromFavorites(movie.id)}
-            />
-          ) : (
-            <Image
-              src="/Favorite.svg"
-              alt="favourite icon"
-              height={60}
-              width={60}
-              className="absolute w-auto h-auto top-2 right-2"
-              onClick={() => addToFavorites(movie)}
-            />
-          )}
+        {isFavorite ? (
+          <Image
+            src="/Favorite.svg"
+            alt="favourite icon"
+            height={60}
+            width={60}
+            className="absolute w-auto h-auto bg-blue-700 top-2 right-2"
+            onClick={() => removeFromFavorites(movie.id)}
+          />
+        ) : (
+          <Image
+            src="/Favorite.svg"
+            alt="favourite icon"
+            height={60}
+            width={60}
+            className="absolute w-auto h-auto top-2 right-2"
+            onClick={() => addToFavorites(movie)}
+          />
+        )}
       </div>
       <div className="flex flex-col items-start pt-4 pl-4 pr-6 md:pl-0">
         <p className="text-[#9CA3AF] font-bold">
           USA, {getYear(movie.release_date)}
         </p>
-        <Link href={`/movies/${movie.id}`}
-          >
+        <Link href={`/movies/${movie.id}`}>
           <p className="text-2xl font-bold">{movie.title}</p>
         </Link>
         <div className="flex md:justify-between">

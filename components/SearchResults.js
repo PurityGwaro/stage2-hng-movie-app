@@ -19,6 +19,7 @@ function SearchResults() {
   const handleRemoveFromFavorites = (movieId) => {
     dispatch(removeFromFavorites(movieId));
   };
+  console.log('search results on component: ', searchResults)
   return (
     <div className="flex flex-col pt-10">
       <div className="flex items-center mb-10">
@@ -35,7 +36,7 @@ function SearchResults() {
       </div>
         <h1 className='mb-4 text-2xl font-bold text-[#BE123C]'>Your Search Results</h1>
       <div className="flex flex-wrap">
-      {searchResults.map((movie, index) => (
+      {searchResults?.map((movie, index) => (
         <MovieItem key={movie.id} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
         addToFavorites={handleAddToFavorites}
         removeFromFavorites={handleRemoveFromFavorites}/>

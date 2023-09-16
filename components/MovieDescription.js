@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from 'next/navigation';
-import Image from "next/image";
-import Link from "next/link";
-import { getGenres } from "@/app/api/getMovies";
 import SecondNav from "./SecondNav";
 import Description from "./Description";
 
