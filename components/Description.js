@@ -111,8 +111,8 @@ function Description({ movie }) {
           className="w-[100%] h-[100%] mr-2 rounded-3xl relative"
         /> */}
         {/* <div className="absolute flex flex-col "> */}
-        <div className='bg-[#ada492] w-[6%] rounded-full items-center justify-center p-2'>
-        <Image
+        <div className="bg-[#ada492] w-[6%] rounded-full items-center justify-center p-2">
+          <Image
             src="/Play.svg"
             alt="play icon"
             width={40}
@@ -120,14 +120,14 @@ function Description({ movie }) {
             className=""
           />
         </div>
-          <span className="text-lg font-bold text-white">Watch Trailer</span>
+        <span className="text-lg font-bold text-white">Watch Trailer</span>
         {/* </div> */}
       </div>
       <div className="flex flex-col items-start pt-4 pl-4 pr-6 md:pl-0">
         <div className="flex flex-wrap items-center mb-2">
-          <p className="mr-2 text-2xl">{singleMovie?.title}</p>
-          <p className="text-[#9CA3AF] font-bold text-sm mr-2">{date}</p>
-          <p className="mr-2 text-2xl font-bold">{singleMovie?.runtime}m</p>
+          <p className="mr-2 text-2xl" data-testid="movie-title">{singleMovie?.title}</p>
+          <p className="text-[#9CA3AF] font-bold text-sm mr-2" data-testid="movie-release-date">{date}</p>
+          <p className="mr-2 text-2xl font-bold" data-testid="movie-runtime">{singleMovie?.runtime}m</p>
           <p className="text-[#9CA3AF]">
             {getGenreNames(movieFromRedux?.genre_ids)}
           </p>
@@ -155,7 +155,9 @@ function Description({ movie }) {
           </div>
         </div>
         <div className="flex flex-col items-center p-2 lg:flex-row">
-          <p className="mb-4 text-sm lg:w-[70%] mr-2">{singleMovie?.overview}</p>
+          <p className="mb-4 text-sm lg:w-[70%] mr-2" data-testid="movie-overview">
+            {singleMovie?.overview}
+          </p>
           <div className="w-[360px]">
             <button className="bg-[#BE123C] flex items-center mb-4 px- py-2 text-sm rounded-lg w-3/4 justify-center">
               <Image
@@ -168,41 +170,58 @@ function Description({ movie }) {
               <span className="text-white">See Showtimes</span>
             </button>
             <button className="flex bg-[#f9e8ec] border-[#BE123C] border w-3/4 items-center mb-4 px-4 py-2 text-sm rounded-lg justify-center">
-              <Image src="/List.svg" alt="list" width={20} height={20} className="mr-2"/>
+              <Image
+                src="/List.svg"
+                alt="list"
+                width={20}
+                height={20}
+                className="mr-2"
+              />
               <span>More watch options</span>
             </button>
           </div>
         </div>
-        <div>
-          <div>
+        <div className="flex flex-col items-center justify-between mb-10 lg:flex-row">
+          <div className="mb-4 mr-20 lg:mb-0">
             <div>
               <span>Director:</span>
               <span className="text-[#BE123C] ml-2">Joseph Kosinski</span>
             </div>
             <div>
               <span>Writers:</span>
-              <span className="text-[#BE123C] ml-2">Jim Cash, Jack Epps Jr, Peter Craig</span>
+              <span className="text-[#BE123C] ml-2">
+                Jim Cash, Jack Epps Jr, Peter Craig
+              </span>
             </div>
             <div>
               <span>Stars:</span>
-              <span className="text-[#BE123C] ml-2">Tom Cruise, Jennifer Connelly, Miles Teller</span>
+              <span className="text-[#BE123C] ml-2">
+                Tom Cruise, Jennifer Connelly, Miles Teller
+              </span>
             </div>
-            <button className="border border-[#C7C7C7] rounded-xl flex mb-4 items-center">
-              <span className="bg-[#BE123C] text-white text-sm py-2 px-6 rounded-xl">Top rated movie #65</span>
+            <button className="border border-[#C7C7C7] rounded-xl mt-2 flex items-center">
+              <span className="bg-[#BE123C] text-white text-sm py-2 px-6 rounded-xl">
+                Top rated movie #65
+              </span>
               <span className="flex px-4">
                 <span>Awards 9 nominations</span>
                 <Image
-                src='/Expand-Arrow.svg'
-                width={20}
-                height={20}
-                className="ml-2"
+                  src="/Expand-Arrow.svg"
+                  width={20}
+                  height={20}
+                  alt="dropdown icon"
+                  className="w-auto h-auto ml-2"
                 />
-                </span>
+              </span>
             </button>
           </div>
-          <div>
-            
-          </div>
+          <Image
+            src="/Group-52.jpg"
+            width={300}
+            height={300}
+            alt="list white icon"
+            className="w-[70%] lg:w-auto"
+          />
         </div>
       </div>
     </div>

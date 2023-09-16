@@ -7,6 +7,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
   const API_KEY = "00c429f22e8422911cceac8a26180fc0";
   const BASE_URL = "https://api.themoviedb.org/3";
 
+
   const imageSrc = (movie, imageSize = "w185") => {
     const imgBaseUrl = "https://image.tmdb.org/t/p/";
     if (movie.poster_path) {
@@ -16,9 +17,6 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
     }
   };
 
-  const getYear = (year) => {
-    return year.split("-")[0];
-  };
   const getRating = (vote_average) => {
     const rating = `${vote_average.toFixed(1) * 10} / 100`;
     return rating;
@@ -58,9 +56,12 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
       .filter(Boolean)
       .join(", ");
   };
-
+  const date = movie?.release_date
+  ? new Date(movie?.release_date).toISOString()
+  : "";
+  
   return (
-    <div className="flex flex-col w-full px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0">
+    <div className="flex flex-col w-full px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0" data-testid="movie-card">
       <div className="relative  h-[80%]">
         <Image
           src={imageSrc(movie)}
@@ -73,7 +74,7 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
             e.target.style.width = "370px";
             e.target.style.height = "370px";
           }}
-          className=""
+          data-testid="movie-poster"
         />
         {isFavorite ? (
           <Image
@@ -96,11 +97,11 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
         )}
       </div>
       <div className="flex flex-col items-start pt-4 pl-4 pr-6 md:pl-0">
-        <p className="text-[#9CA3AF] font-bold">
-          USA, {getYear(movie.release_date)}
+        <p className="text-[#9CA3AF] font-bold text-sm" data-testid="movie-release-date">
+        {date}
         </p>
         <Link href={`/movies/${movie.id}`}>
-          <p className="text-2xl font-bold">{movie.title}</p>
+          <p className="text-2xl font-bold" data-testid="movie-title">{movie.title}</p>
         </Link>
         <div className="flex md:justify-between">
           <div className="flex justify-between">
