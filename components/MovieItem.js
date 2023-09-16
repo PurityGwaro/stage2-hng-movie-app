@@ -61,8 +61,8 @@ function MovieItem({ movie, isFavorite, addToFavorites, removeFromFavorites }) {
   : "";
   
   return (
-    <div className="flex flex-col w-full px-10 mb-10 md:w-1/3 lg:w-1/5 md:pr-6 md:pl-0" data-testid="movie-card">
-      <div className="relative  h-[80%]">
+    <div className="flex flex-col items-center justify-center w-full mb-10 md:pl-0" data-testid="movie-card shadow-3xl">
+      <div className="relative">
         <Image
           src={imageSrc(movie)}
           alt="movie image"

@@ -34,9 +34,9 @@ function Favorites() {
         </Link>
       </div>
       <h1 className='mb-4 text-2xl font-bold text-[#BE123C]'>Your Favorite Movies</h1>
-      <div className="flex flex-wrap">
+      <div className="grid items-start justify-center max-w-full grid-cols-1 gap-10 lg:grid-cols-5 md:grid-cols-3 lg:pl-10 lg:mt-10 place-content-center">
       {favorites.map((movie, index) => (
-        <MovieItem key={movie.index} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
+        <MovieItem key={index} movie={movie} isFavorite={favorites.some((favMovie) => favMovie.id === movie.id)}
         addToFavorites={handleAddToFavorites}
         removeFromFavorites={handleRemoveFromFavorites}/>
       ))}

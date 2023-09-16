@@ -56,7 +56,9 @@ function MovieList() {
           Go to Favorites
         </Link>
         <section 
-        className="flex flex-col items-center md:flex-wrap md:items-start md:flex-row">
+        // className="flex flex-col items-center md:flex-wrap md:items-start md:flex-row"
+        className="grid items-start justify-center max-w-full grid-cols-1 gap-10 lg:grid-cols-5 md:grid-cols-3 lg:pl-10 lg:mt-10 place-content-center"
+        >
           {movies?.map((movie) => (
             <MovieItem
               key={movie.id}

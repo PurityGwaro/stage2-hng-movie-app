@@ -47,7 +47,7 @@ function SearchResults() {
         <p>Loading...</p>
       ) : (
         searchResults?.length === 0 ? (<p>No results found, kindly try again</p>) : (
-          <div className="flex flex-wrap">
+          <div className="grid items-start justify-center max-w-full grid-cols-1 gap-10 lg:grid-cols-5 md:grid-cols-3 lg:pl-10 lg:mt-10 place-content-center">
           {searchResults?.map((movie, index) => (
             <MovieItem
               key={movie.id}

@@ -12,7 +12,7 @@ function Poster({ movies }) {
     return percentage;
   };
   return (
-    <div className="bg-[url('/Poster.svg')] md:h-[14%] lg:h-[20%] h-[5%] w-100 bg-no-repeat bg-cover text-white md:mt-10 bg-fixed">
+    <div className="bg-[url('/Poster.svg')] lg:h-[18%] md:h-[12%] h-[5%] md:w-[100%] w-100 bg-no-repeat bg-cover text-white md:mt-10 bg-fixed bg-center">
       <NavBar />
       <div className="flex flex-col w-[70%] mt-40 ml-20 lg:w-1/4 md:w-1/2">
         <h1 className="text-3xl">John Wick 3 : Parabellum</h1>

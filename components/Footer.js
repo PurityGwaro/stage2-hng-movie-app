@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center py-10 text-center ">
+    <footer className="flex flex-col items-center justify-center py-10 mt-20 text-center md:mt-0">
       <div className="flex">
         <Image
           src="/facebook.svg"

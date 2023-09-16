@@ -5,7 +5,7 @@ import Link from "next/link";
 
 function SecondNav() {
   return (
-    <nav className="grid grid-cols-1 pt-4 pb-4 ml-1 border-2 lg:pr-6 lg:px-8 lg:pt-10 rounded-tr-2xl rounded-br-2xl lg:w-1/2 md:w-3/4 md:px-4">
+    <nav className="grid grid-cols-1 pt-4 pb-4 ml-1 border-2 lg:pr-20 lg:px-8 lg:pt-10 rounded-tr-2xl rounded-br-2xl lg:w-1/2 md:w-3/4 md:px-4 md:pr-8">
       <div className="flex items-center">
         <Image
           src="/tv.svg"
